@@ -103,11 +103,28 @@
 #endif
 
 // Header files for non-vector intrinsic functions including _BitScanReverse(int), __cpuid(int[4],int), _xgetbv(int)
-#ifdef _MSC_VER                        // Microsoft compiler or compatible Intel compiler
-#include <intrin.h>
-#else
-#include <x86intrin.h>                 // Gcc or Clang compiler
-#endif
+
+#define SIMDE_ENABLE_NATIVE_ALIASES
+
+#include "../simde/simde/x86/mmx.h"
+#include "../simde/simde/x86/sse.h"
+#include "../simde/simde/x86/sse2.h"
+#include "../simde/simde/x86/sse3.h"
+#include "../simde/simde/x86/sse4.1.h"
+#include "../simde/simde/x86/sse4.2.h"
+#include "../simde/simde/x86/avx.h"
+#include "../simde/simde/x86/avx2.h"
+#include "../simde/simde/x86/avx512.h"
+
+#include "../simde/simde/x86/clmul.h"
+#include "../simde/simde/x86/f16c.h"
+#include "../simde/simde/x86/fma.h"
+#include "../simde/simde/x86/gfni.h"
+#include "../simde/simde/x86/svml.h"
+#include "../simde/simde/x86/xop.h"
+
+// SIMDE includes
+
 
 #include <stdint.h>                    // Define integer types with known size
 #include <stdlib.h>                    // define abs(int)
